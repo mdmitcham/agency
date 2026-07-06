@@ -1,0 +1,24 @@
+---
+layout: layout.njk
+title: Blog
+permalink: /blog/
+---
+<div class="mb-14">
+  <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">Insights</span>
+  <h1 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-4">The Blog</h1>
+  <p class="text-sm md:text-base font-light text-gray-400 max-w-xl">
+    Notes on inbound systems, ads, and growth for high-ticket service businesses.
+  </p>
+</div>
+
+<div class="space-y-6">
+  {% for post in collections.post %}
+  <a href="{{ post.url }}" class="block gradient-border bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8 hover:border-rose-500/20 transition-all duration-300">
+    <div class="text-xs text-gray-500 font-montserrat mb-2">{{ post.data.date | date }}</div>
+    <h2 class="text-xl md:text-2xl font-medium text-white font-montserrat mb-2">{{ post.data.title }}</h2>
+    <p class="text-sm text-gray-500 leading-relaxed">{{ post.data.description }}</p>
+  </a>
+  {% else %}
+  <p class="text-sm text-gray-500">No posts yet — check back soon.</p>
+  {% endfor %}
+</div>

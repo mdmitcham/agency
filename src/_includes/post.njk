@@ -1,0 +1,16 @@
+---
+layout: layout.njk
+---
+<a href="/blog/" class="text-xs font-montserrat text-rose-400 hover:text-white transition-colors inline-flex items-center gap-1 mb-8">
+  <iconify-icon icon="solar:arrow-left-linear" width="14"></iconify-icon>
+  Back to Blog
+</a>
+
+<div class="mb-10">
+  <div class="text-xs text-gray-500 font-montserrat mb-3">{{ date | date }}</div>
+  <h1 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif">{{ title }}</h1>
+</div>
+
+<article class="text-gray-400">
+  {{ content | safe }}
+</article>
