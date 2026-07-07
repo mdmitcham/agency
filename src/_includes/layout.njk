@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title }} | Motive Growth Agency</title>
   <meta name="description" content="{{ description or 'Insights on growth, ads, and inbound systems from Motive Growth Agency.' }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="{{ site.name }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description or 'Insights on growth, ads, and inbound systems from Motive Growth Agency.' }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ ogImage or site.defaultOgImage }}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description or 'Insights on growth, ads, and inbound systems from Motive Growth Agency.' }}" />
+  <meta name="twitter:image" content="{{ ogImage or site.defaultOgImage }}" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

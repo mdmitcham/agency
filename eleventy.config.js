@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "static/index.html": "index.html" });
+  eleventyConfig.addPassthroughCopy({ "static/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy("CNAME");
 
   eleventyConfig.addFilter("date", (dateValue) =>
@@ -8,6 +9,10 @@ module.exports = function (eleventyConfig) {
       month: "long",
       day: "numeric",
     })
+  );
+
+  eleventyConfig.addFilter("htmlDateString", (dateValue) =>
+    new Date(dateValue).toISOString().split("T")[0]
   );
 
   eleventyConfig.addCollection("post", (collectionApi) =>
