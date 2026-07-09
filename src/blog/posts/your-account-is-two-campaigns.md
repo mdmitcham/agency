@@ -1,22 +1,26 @@
 ---
 layout: post.njk
 title: Your Meta Ad Account Is Two Campaigns
-description: The platform automated most of what media buyers used to charge for. What's left is the part nobody can automate: knowing what's worth testing in the first place.
+description: "The platform automated most of what media buyers used to charge for. What's left is the part nobody can automate: knowing what's worth testing in the first place."
 date: 2026-07-09
 permalink: /blog/your-account-is-two-campaigns/
 ---
 
-Most Meta ad accounts are too complicated.
+Behold the average Meta ad account.
 
-Not sophisticated. Complicated. There's a difference and it costs about as much as a junior hire.
+A complicated jumble of failed dreams, dashed hopes, and multiple weird campaigns named like June_Final_Karen V2 that are not populated.
 
-When I started working with media buyers I was genuinely impressed. These people knew the platform. Every setting, every lever, every optimization nobody else had read the changelog for. A good one could charge $6,000 a month, or $10,000, plus a percentage of spend, and you paid it happily because you had no idea what two thirds of those checkboxes did.
+The difference between a good account and a bad one will cost you roughly the equivalent of a junior account manager.
 
-I still don't think media buyers are overpaid.
+Read 👇
 
-The job changed.
+When I started working with media buyers I was genuinely impressed. A good one could charge $6,000 - $10,000, plus a percentage of spend, and you paid it happily because you had no idea what two thirds of those checkboxes did. Really excellent ones came with end to end tracking and recommendations. They simply were the acquisition channel.
 
-Facebook automated the part they were charging for. The algorithm now handles most of the optimizing that used to take a specialist. Big accounts and strange funnels still have real platform strategy in them. For most lead gen businesses there is no secret setting.
+The job changed though.
+
+Facebook automated the part they were charging for. The algorithm now handles most of the optimizing that used to take a specialist. Big accounts and strange funnels still have real platform strategy in them.
+
+For most lead gen businesses there is no secret setting which needs esoterica to unlock it.
 
 There's just the account.
 
@@ -70,6 +74,6 @@ We're not in the account hunting for a setting that changes the outcome. We're w
 
 The platform got dramatically simpler.
 
-Making ads that people care about did not.
+Making ads that get people to do the thing you want them to do... did not.
 
 If your account has eleven campaigns and you couldn't say what any of them are testing, that's the first thing we'd fix. [Book a strategy call](/#book-call) and we'll show you what two campaigns looks like.
