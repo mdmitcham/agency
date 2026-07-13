@@ -8,15 +8,25 @@ permalink: /blog/the-call-was-lost-before-it-was-booked/
 
 "I need to think about it."
 
-If you sell anything over the phone, you've heard it. And you probably spent the drive home replaying the close.
+I've worked with a lot of really great sales guys and they basically all say that if the "I need to think about it" objection comes up you have failed at discovery.
 
-Go back further. That call was lost before it was booked.
+But I would say go back further. 
 
-Meta reads the words in your ad and finds people who match them. Write something vague and hopeful about "transforming your look" and the algorithm finds people who are vague and hopeful about it too. They like the idea. They'll take a free call about the idea. Then a price shows up and the idea goes back on the shelf.
+That call was lost before it was booked.
 
-Claude Hopkins called this a hundred years before Meta existed: "Platitudes and generalities roll off the human understanding like water from a duck. They leave no impression whatever."
+The call was lost at the AD LEVEL, not the sales level.
 
-Now write the ad about one man. He's 34. He's worn a hat to every wedding for three years. He's googled the same procedure four times and closed the tab four times.
+Meta reads the words in your ad and finds people who match them. Write something vague and hopeful about "transforming your look" and the algorithm finds people who are vague and hopeful about it too. They like the idea. They'll take a free call about the idea. 
+
+Then a price shows up and everyone gets sticker shock.
+
+They never really wanted a result in the first place. 
+
+You found people who didn't want to actually convert. 🤷
+
+BUT!
+
+Write the ad about one man. He's 34. He's worn a hat to every wedding for three years. He's googled the same procedure four times and closed the tab four times.
 
 Get that specific and the algorithm finds him, because he's the only one the words fit.
 
