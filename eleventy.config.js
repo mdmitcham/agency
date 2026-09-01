@@ -1,5 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "static/index.html": "index.html" });
+  eleventyConfig.addPassthroughCopy({ "static/calculator.html": "calculator/index.html" });
   eleventyConfig.addPassthroughCopy({ "static/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy("CNAME");
 

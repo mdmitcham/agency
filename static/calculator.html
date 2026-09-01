@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ad Budget Calculator — Motive Growth Agency</title>
+<meta name="description" content="Work out what a monthly ad budget actually buys: leads, booked appointments, new clients, revenue, and the net after all costs. Every input is editable.">
+<link rel="canonical" href="https://motivegrowthagency.com/calculator/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Motive Growth Agency">
+<meta property="og:title" content="Ad Budget Calculator — Motive Growth Agency">
+<meta property="og:description" content="Work out what a monthly ad budget actually buys: leads, booked appointments, new clients, revenue, and the net after all costs.">
+<meta property="og:url" content="https://motivegrowthagency.com/calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ad Budget Calculator — Motive Growth Agency">
+<meta name="twitter:description" content="Work out what a monthly ad budget actually buys: leads, booked appointments, new clients, revenue, and the net after all costs.">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  :root {
+    color-scheme: light dark;
+    --paper: #eef0f1;
+    --surface: #ffffff;
+    --surface-sunken: #e2e6e9;
+    --ink: #1b2027;
+    --ink-soft: #59636d;
+    --ink-faint: #8a939c;
+    --line: #d7dce0;
+    --accent: #2c5f6f;
+    --accent-ink: #1c4552;
+    --accent-soft: #dfeaee;
+    --cost: #9c8465;
+    --negative: #a23b2e;
+    --negative-soft: #f3e0dc;
+    --highlight: #b8802e;
+    --highlight-soft: #f6ead3;
+    --shadow: 0 1px 2px rgba(27,32,39,0.04), 0 8px 24px -12px rgba(27,32,39,0.12);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #12151a;
+      --surface: #1a1e25;
+      --surface-sunken: #20242c;
+      --ink: #e9edf0;
+      --ink-soft: #9aa5af;
+      --ink-faint: #6b7680;
+      --line: #2b313b;
+      --accent: #5fa8bd;
+      --accent-ink: #bfe4ee;
+      --accent-soft: #1e343b;
+      --cost: #b09872;
+      --negative: #e08a72;
+      --negative-soft: #33231d;
+      --highlight: #d9a54f;
+      --highlight-soft: #332818;
+      --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 8px 24px -12px rgba(0,0,0,0.55);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #12151a;
+    --surface: #1a1e25;
+    --surface-sunken: #20242c;
+    --ink: #e9edf0;
+    --ink-soft: #9aa5af;
+    --ink-faint: #6b7680;
+    --line: #2b313b;
+    --accent: #5fa8bd;
+    --accent-ink: #bfe4ee;
+    --accent-soft: #1e343b;
+    --cost: #b09872;
+    --negative: #e08a72;
+    --negative-soft: #33231d;
+    --highlight: #d9a54f;
+    --highlight-soft: #332818;
+    --shadow: 0 1px 2px rgba(0,0,0,0.35), 0 8px 24px -12px rgba(0,0,0,0.55);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Public Sans", system-ui, sans-serif;
+    font-size: 14px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Site bar — ties the page back to the main site without fighting its palette */
+  .sitebar {
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 28px;
+  }
+  .wordmark {
+    font-family: "Newsreader", Georgia, serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .wordmark:hover { color: var(--accent-ink); }
+  .sitebar-cta {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 7px 15px;
+    white-space: nowrap;
+  }
+  .sitebar-cta:hover { color: var(--accent-ink); border-color: var(--accent); }
+
+  .page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 28px 56px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  /* setup strip */
+  details.setup {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 4px 18px;
+  }
+  details.setup summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 12px 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  details.setup summary::-webkit-details-marker { display: none; }
+  details.setup summary::before {
+    content: "▸";
+    display: inline-block;
+    transition: transform 0.15s ease;
+    color: var(--ink-faint);
+  }
+  details.setup[open] summary::before { transform: rotate(90deg); }
+  .setup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    padding: 4px 0 18px;
+  }
+  .setup-field { display: flex; flex-direction: column; gap: 5px; }
+  .setup-field label { font-size: 11.5px; color: var(--ink-faint); }
+  .setup-field input {
+    font-family: "Public Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    background: var(--surface-sunken);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+  .setup-field input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .masthead { display: flex; flex-direction: column; gap: 6px; }
+  .eyebrow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0;
+  }
+  h1 {
+    font-family: "Newsreader", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: clamp(26px, 4vw, 36px);
+    margin: 0;
+    text-wrap: balance;
+    letter-spacing: -0.01em;
+  }
+  .sub {
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    margin: 0;
+    max-width: 64ch;
+    line-height: 1.5;
+  }
+
+  section {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 22px 26px;
+  }
+
+  .control--hero { display: flex; flex-direction: column; gap: 10px; padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .control--hero label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .hero-input { display: flex; align-items: baseline; gap: 4px; flex-wrap: wrap; }
+  .hero-input .prefix {
+    font-family: "Newsreader", serif;
+    font-size: 30px;
+    color: var(--ink-faint);
+  }
+  .hero-input input {
+    font-family: "Newsreader", serif;
+    font-weight: 600;
+    font-size: 42px;
+    color: var(--accent-ink);
+    background: transparent;
+    border: none;
+    width: 200px;
+    padding: 0;
+  }
+  .hero-input input:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
+  .per-day {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    padding-bottom: 6px;
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--accent) 0%, var(--accent) var(--fill, 30%), var(--surface-sunken) var(--fill, 30%), var(--surface-sunken) 100%);
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--accent);
+    cursor: pointer;
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 3px solid var(--surface);
+    box-shadow: 0 0 0 1px var(--accent);
+    cursor: pointer;
+  }
+  input[type="range"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  .control-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 18px 20px;
+  }
+  .control { display: flex; flex-direction: column; gap: 7px; }
+  .control label {
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    line-height: 1.35;
+  }
+  .control .hint { color: var(--ink-faint); font-weight: 400; }
+  .control--key label { color: var(--accent-ink); font-weight: 600; }
+  .input-wrap {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-sunken);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    padding: 9px 12px;
+  }
+  .control--key .input-wrap { border-color: var(--accent); background: var(--accent-soft); }
+  .input-wrap .prefix, .input-wrap .suffix {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--ink-faint);
+    font-size: 15px;
+  }
+  .input-wrap input {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    font-variant-numeric: tabular-nums;
+  }
+  .input-wrap input:focus-visible { outline: none; }
+  .input-wrap:focus-within { border-color: var(--accent); }
+
+  .fee-section { display: flex; flex-direction: column; gap: 14px; }
+  .fee-heading {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* chain */
+  .chain { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0; padding: 0; overflow: hidden; }
+  .chain-step {
+    padding: 20px 22px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .chain-step:last-child { border-right: none; }
+  .chain-label {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.3;
+  }
+  .chain-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .chain-step--final .chain-value { color: var(--accent-ink); }
+
+  /* ledger */
+  .ledger { display: flex; flex-direction: column; padding: 8px 26px; }
+  .ledger-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-row[hidden] { display: none; }
+  .ledger-label { color: var(--ink-soft); font-size: 14.5px; }
+  .ledger-label .hint { color: var(--ink-faint); font-size: 13px; }
+  .ledger-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 19px;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .ledger-row--total .ledger-label { color: var(--ink); font-weight: 500; }
+  .ledger-row--total .ledger-value { font-size: 23px; color: var(--accent-ink); }
+
+  /* compare */
+  .compare { display: flex; flex-direction: column; gap: 16px; }
+  .compare-bar { display: flex; flex-direction: column; gap: 6px; }
+  .bar-track {
+    height: 14px;
+    background: var(--surface-sunken);
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .bar-fill { height: 100%; border-radius: 999px; transition: width 0.25s ease; }
+  .bar-fill--cost { background: var(--cost); }
+  .bar-fill--revenue { background: var(--accent); }
+  .bar-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-soft); gap: 12px; }
+  .bar-label span:last-child {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .net-callout {
+    margin-top: 6px;
+    padding: 18px 20px;
+    border-radius: 11px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .net-callout.is-negative { background: var(--negative-soft); }
+  .net-label { font-size: 13.5px; color: var(--ink-soft); }
+  .net-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 600;
+    font-size: 26px;
+    color: var(--accent-ink);
+    font-variant-numeric: tabular-nums;
+  }
+  .net-callout.is-negative .net-value { color: var(--negative); }
+  .net-multiple { font-size: 13.5px; color: var(--ink-soft); font-family: "IBM Plex Mono", monospace; }
+
+  .footnote {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0 4px;
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    line-height: 1.55;
+    max-width: 78ch;
+  }
+
+  @media (max-width: 620px) {
+    .sitebar { padding: 12px 18px; }
+    .ledger { padding: 8px 18px; }
+    section { padding: 20px 18px; }
+    .chain-step { border-right: none; border-bottom: 1px solid var(--line); }
+    .chain-step:last-child { border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="sitebar">
+  <a class="wordmark" href="/">Motive Growth Agency</a>
+  <a class="sitebar-cta" href="/#book-call">Book a call</a>
+</header>
+
+<div class="page">
+  <details class="setup" open>
+    <summary>Set up for this call</summary>
+    <div class="setup-grid">
+      <div class="setup-field">
+        <label for="bizName">Business name</label>
+        <input type="text" id="bizName" value="Your Business" autocomplete="off">
+      </div>
+      <div class="setup-field">
+        <label for="currencySymbol">Currency symbol</label>
+        <input type="text" id="currencySymbol" value="$" maxlength="4" autocomplete="off">
+      </div>
+      <div class="setup-field">
+        <label for="apptTerm">What do you call a booked call/estimate?</label>
+        <input type="text" id="apptTerm" value="appointment" autocomplete="off">
+      </div>
+      <div class="setup-field">
+        <label for="saleTerm">What do you call a closed sale?</label>
+        <input type="text" id="saleTerm" value="client" autocomplete="off">
+      </div>
+    </div>
+  </details>
+
+  <header class="masthead">
+    <p class="eyebrow" id="eyebrow">Live on this call</p>
+    <h1 id="pageTitle">Your Business — What the Ad Budget Buys</h1>
+    <p class="sub">Every number below is editable — change the budget, the close rate, or the average sale and everything recalculates instantly.</p>
+  </header>
+
+  <section class="controls" aria-label="Inputs">
+    <div class="control--hero">
+      <label for="adSpend">Ad budget per month — paid direct to the ad platform</label>
+      <div class="hero-input">
+        <span class="prefix" id="heroPrefix">$</span>
+        <input type="number" id="adSpend" value="3000" step="100" min="0" inputmode="numeric">
+        <span class="per-day" id="perDay">≈ $100/day</span>
+      </div>
+      <input type="range" id="adSpendRange" min="500" max="15000" step="250" value="3000" aria-label="Ad budget slider">
+    </div>
+
+    <div class="control-grid">
+      <div class="control">
+        <label for="costPerLead">Cost per lead <span class="hint" id="leadHint">— someone raising their hand</span></label>
+        <div class="input-wrap"><span class="prefix" id="cplPrefix">$</span><input type="number" id="costPerLead" value="50" step="5" min="1" inputmode="numeric"></div>
+      </div>
+      <div class="control">
+        <label id="bookRateLabel" for="bookRate">Leads that book an appointment</label>
+        <div class="input-wrap"><input type="number" id="bookRate" value="40" step="1" min="0" max="100" inputmode="numeric"><span class="suffix">%</span></div>
+      </div>
+      <div class="control">
+        <label id="closeRateLabel" for="closeRate">Appointments that become clients</label>
+        <div class="input-wrap"><input type="number" id="closeRate" value="40" step="1" min="0" max="100" inputmode="numeric"><span class="suffix">%</span></div>
+      </div>
+      <div class="control control--key">
+        <label id="avgSaleLabel" for="avgSale">Your average client value</label>
+        <div class="input-wrap"><span class="prefix" id="avgSalePrefix">$</span><input type="number" id="avgSale" value="2000" step="100" min="0" inputmode="numeric"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fee-section" aria-label="Your fee (optional)">
+    <span class="fee-heading">Your fee — leave at 0 to hide from the ledger below</span>
+    <div class="control-grid">
+      <div class="control">
+        <label id="feePerApptLabel" for="feePerAppt">Fee per booked appointment</label>
+        <div class="input-wrap"><span class="prefix" id="feePrefix">$</span><input type="number" id="feePerAppt" value="0" step="25" min="0" inputmode="numeric"></div>
+      </div>
+      <div class="control">
+        <label for="setupFee">One-time setup fee <span class="hint">— month one only</span></label>
+        <div class="input-wrap"><span class="prefix" id="setupPrefix">$</span><input type="number" id="setupFee" value="0" step="100" min="0" inputmode="numeric"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chain" aria-label="What the budget produces each month">
+    <div class="chain-step">
+      <span class="chain-value" id="outLeads">—</span>
+      <span class="chain-label">leads</span>
+    </div>
+    <div class="chain-step">
+      <span class="chain-value" id="outAppts">—</span>
+      <span class="chain-label" id="apptChainLabel">appointments booked</span>
+    </div>
+    <div class="chain-step">
+      <span class="chain-value" id="outSales">—</span>
+      <span class="chain-label" id="saleChainLabel">new clients</span>
+    </div>
+    <div class="chain-step chain-step--final">
+      <span class="chain-value" id="outRevenue">—</span>
+      <span class="chain-label">in new revenue</span>
+    </div>
+  </section>
+
+  <section class="ledger" aria-label="What it costs">
+    <div class="ledger-row">
+      <span class="ledger-label">Ad budget <span class="hint">(to the platform, not to me)</span></span>
+      <span class="ledger-value" id="outSpend">—</span>
+    </div>
+    <div class="ledger-row" id="feeRow" hidden>
+      <span class="ledger-label" id="feeRowLabel">My fee</span>
+      <span class="ledger-value" id="outFee">—</span>
+    </div>
+    <div class="ledger-row ledger-row--total">
+      <span class="ledger-label">All-in, month one</span>
+      <span class="ledger-value" id="outMonth1">—</span>
+    </div>
+    <div class="ledger-row ledger-row--total">
+      <span class="ledger-label">All-in, every month after</span>
+      <span class="ledger-value" id="outOngoing">—</span>
+    </div>
+  </section>
+
+  <section class="compare" aria-label="Cost against work won">
+    <div class="compare-bar">
+      <div class="bar-track"><div class="bar-fill bar-fill--cost" id="barCost" style="width:0%"></div></div>
+      <div class="bar-label"><span>What it costs, ongoing month</span><span id="barCostLabel">—</span></div>
+    </div>
+    <div class="compare-bar">
+      <div class="bar-track"><div class="bar-fill bar-fill--revenue" id="barRevenue" style="width:0%"></div></div>
+      <div class="bar-label"><span>New revenue it generates</span><span id="barRevenueLabel">—</span></div>
+    </div>
+    <div class="net-callout" id="netCallout">
+      <span class="net-label">Net, ongoing month</span>
+      <span class="net-value" id="netValue">—</span>
+      <span class="net-multiple" id="netMultiple"></span>
+    </div>
+  </section>
+
+  <p class="footnote">These are planning estimates based on the assumptions above, not guarantees. Cost per lead is usually highest in the first few weeks while the ad account has no history to learn from, then improves as it optimizes.</p>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  const bizName = $("bizName"), currencySymbol = $("currencySymbol"), apptTerm = $("apptTerm"), saleTerm = $("saleTerm");
+  const adSpend = $("adSpend"), adSpendRange = $("adSpendRange");
+  const costPerLead = $("costPerLead"), bookRate = $("bookRate"), closeRate = $("closeRate");
+  const avgSale = $("avgSale"), feePerAppt = $("feePerAppt"), setupFee = $("setupFee");
+
+  function pluralize(word) {
+    const w = (word || "").trim();
+    if (!w) return "";
+    return w.endsWith("s") ? w : w + "s";
+  }
+
+  function money(n) {
+    const sym = currencySymbol.value.trim() || "$";
+    return sym + Math.round(n).toLocaleString("en-US");
+  }
+
+  function syncRangeFill(range) {
+    const pct = ((range.value - range.min) / (range.max - range.min)) * 100;
+    range.style.setProperty("--fill", Math.max(0, Math.min(100, pct)) + "%");
+  }
+
+  function applyLabels() {
+    const name = bizName.value.trim() || "Your Business";
+    const sym = currencySymbol.value.trim() || "$";
+    const appt = apptTerm.value.trim() || "appointment";
+    const apptP = pluralize(appt);
+    const sale = saleTerm.value.trim() || "client";
+    const saleP = pluralize(sale);
+
+    $("pageTitle").textContent = name + " — What the Ad Budget Buys";
+    document.querySelectorAll(".hero-input .prefix, #cplPrefix, #avgSalePrefix, #feePrefix, #setupPrefix").forEach(el => el.textContent = sym);
+
+    $("bookRateLabel").textContent = "Leads that book " + (/^[aeiou]/i.test(appt) ? "an " : "a ") + appt;
+    $("closeRateLabel").textContent = apptP.charAt(0).toUpperCase() + apptP.slice(1) + " that become " + saleP;
+    $("avgSaleLabel").textContent = "Your average " + sale + " value";
+    $("feePerApptLabel").textContent = "Fee per booked " + appt;
+    $("apptChainLabel").textContent = apptP + " booked";
+    $("saleChainLabel").textContent = "new " + saleP;
+    $("feeRowLabel").textContent = "My fee";
+  }
+
+  function recalc() {
+    applyLabels();
+
+    const spend = Math.max(0, Number(adSpend.value) || 0);
+    const cpl = Math.max(1, Number(costPerLead.value) || 1);
+    const book = Math.min(100, Math.max(0, Number(bookRate.value) || 0)) / 100;
+    const close = Math.min(100, Math.max(0, Number(closeRate.value) || 0)) / 100;
+    const sale = Math.max(0, Number(avgSale.value) || 0);
+    const fee = Math.max(0, Number(feePerAppt.value) || 0);
+    const setup = Math.max(0, Number(setupFee.value) || 0);
+
+    const leads = spend / cpl;
+    const appts = leads * book;
+    const sales = appts * close;
+    const revenue = sales * sale;
+
+    const ongoingFee = appts * fee;
+    const month1Fee = setup + ongoingFee;
+    const month1 = month1Fee + spend;
+    const ongoing = ongoingFee + spend;
+    const net = revenue - ongoing;
+
+    $("perDay").textContent = "≈ " + money(spend / 30) + "/day";
+    $("outLeads").textContent = Math.round(leads);
+    $("outAppts").textContent = Math.round(appts);
+    $("outSales").textContent = Math.round(sales);
+    $("outRevenue").textContent = money(revenue);
+
+    $("outSpend").textContent = money(spend);
+    $("outFee").textContent = money(ongoingFee) + (setup > 0 ? " + " + money(setup) + " setup (month 1)" : "");
+    $("feeRow").hidden = !(fee > 0 || setup > 0);
+    $("outMonth1").textContent = money(month1);
+    $("outOngoing").textContent = money(ongoing);
+
+    const maxBar = Math.max(ongoing, revenue, 1);
+    $("barCost").style.width = Math.min(100, (ongoing / maxBar) * 100) + "%";
+    $("barRevenue").style.width = Math.min(100, (revenue / maxBar) * 100) + "%";
+    $("barCostLabel").textContent = money(ongoing);
+    $("barRevenueLabel").textContent = money(revenue);
+
+    $("netValue").textContent = (net >= 0 ? "+" : "−") + money(Math.abs(net));
+    $("netCallout").classList.toggle("is-negative", net < 0);
+    $("netMultiple").textContent = ongoing > 0 ? (revenue / ongoing).toFixed(1) + "× return" : "";
+
+    adSpendRange.value = spend;
+    syncRangeFill(adSpendRange);
+  }
+
+  adSpend.addEventListener("input", recalc);
+  adSpendRange.addEventListener("input", () => { adSpend.value = adSpendRange.value; recalc(); });
+  [costPerLead, bookRate, closeRate, avgSale, feePerAppt, setupFee, bizName, currencySymbol, apptTerm, saleTerm]
+    .forEach(el => el.addEventListener("input", recalc));
+
+  syncRangeFill(adSpendRange);
+  recalc();
+</script>
+</body>
+</html>
