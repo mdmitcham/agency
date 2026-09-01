@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Motive Growth Agency — $100k Profit Guarantee</title>
+  <title>Motive Growth Agency — Paid Acquisition for High-Ticket Service Businesses</title>
   <meta name="description" content="Our done-for-you inbound client system will bring you 20-30 more booked calls per month, or we work for free until it does. Book your free strategy session today." />
   <link rel="canonical" href="https://motivegrowthagency.com/" />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Motive Growth Agency" />
-  <meta property="og:title" content="Motive Growth Agency — $100k Profit Guarantee" />
+  <meta property="og:title" content="Motive Growth Agency — Paid Acquisition for High-Ticket Service Businesses" />
   <meta property="og:description" content="Our done-for-you inbound client system will bring you 20-30 more booked calls per month, or we work for free until it does." />
   <meta property="og:url" content="https://motivegrowthagency.com/" />
   <meta property="og:image" content="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/40d42cfe-c2d0-4484-9067-6583a55998be_1600w.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Motive Growth Agency — $100k Profit Guarantee" />
+  <meta name="twitter:title" content="Motive Growth Agency — Paid Acquisition for High-Ticket Service Businesses" />
   <meta name="twitter:description" content="Our done-for-you inbound client system will bring you 20-30 more booked calls per month, or we work for free until it does." />
   <meta name="twitter:image" content="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/40d42cfe-c2d0-4484-9067-6583a55998be_1600w.png" />
 
@@ -40,6 +40,28 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Accent palette. The markup uses `rose-*` throughout; this remaps that scale to a
+       muted bronze, which reads considerably more premium on near-black than the
+       original red. To revert the whole site's accent, delete this one block. -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              300: '#DCC49B',
+              400: '#C5A47E',
+              500: '#A98C63',
+              600: '#8E734E',
+              900: '#3A2F22',
+              950: '#221B14'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
   <!-- Iconify -->
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
@@ -62,10 +84,6 @@
     @keyframes infinite-scroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
-    }
-    @keyframes pulse-glow {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
-      50%       { box-shadow: 0 0 24px 4px rgba(244, 63, 94, 0.25); }
     }
     .animate-fade-up {
       animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -116,34 +134,39 @@
       inset: 0;
       padding: 1px;
       border-radius: inherit;
-      background: linear-gradient(135deg, rgba(244,63,94,0.4), rgba(255,255,255,0.05), rgba(244,63,94,0.1));
+      background: linear-gradient(135deg, rgba(169,140,99,0.35), rgba(255,255,255,0.05), rgba(169,140,99,0.10));
       -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       pointer-events: none;
     }
 
-    /* Star rating */
-    .stars { color: #f59e0b; letter-spacing: 2px; }
-
     /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #0a0a0a; }
     ::-webkit-scrollbar-thumb { background: #222; border-radius: 3px; }
 
-    /* CTA pulse */
-    .cta-primary { animation: pulse-glow 3s ease-in-out infinite; }
+    /* Quiet section eyebrow */
+    .eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #6b7280;
+      display: block;
+    }
 
     /* Number step */
     .step-number {
       width: 3rem; height: 3rem;
       border-radius: 50%;
-      border: 1px solid rgba(244,63,94,0.3);
-      background: rgba(244,63,94,0.08);
+      border: 1px solid rgba(169,140,99,0.28);
+      background: rgba(169,140,99,0.08);
       display: flex; align-items: center; justify-content: center;
       font-family: 'Montserrat', sans-serif;
       font-weight: 600;
-      color: #fb7185;
+      color: #C5A47E;
       font-size: 1rem;
       flex-shrink: 0;
     }
@@ -152,7 +175,7 @@
     .step-connector {
       flex: 1;
       height: 1px;
-      background: linear-gradient(to right, rgba(244,63,94,0.3), rgba(244,63,94,0.05));
+      background: linear-gradient(to right, rgba(169,140,99,0.28), rgba(169,140,99,0.05));
     }
   </style>
 </head>
@@ -174,6 +197,8 @@
         <a href="#process" class="hover:text-white transition-colors duration-200">Process</a>
         <a href="#testimonials" class="hover:text-white transition-colors duration-200">Results</a>
         <a href="#faq" class="hover:text-white transition-colors duration-200">FAQ</a>
+        <a href="/blog/" class="hover:text-white transition-colors duration-200">Blog</a>
+        <a href="https://claude.ai/code/artifact/801acd24-9456-44c4-8e4f-fa3d9de831eb" target="_blank" rel="noopener" class="hover:text-white transition-colors duration-200">Ad Budget Calculator</a>
       </div>
       <!-- CTA -->
       <a href="#book-call"
@@ -196,11 +221,6 @@
 
       <div class="relative z-10 flex flex-col items-center max-w-5xl mx-auto">
 
-        <!-- Eyebrow badge -->
-        <div class="animate-fade-up w-fit border px-4 py-1.5 rounded-full text-[10px] tracking-widest uppercase font-montserrat font-bold mb-6 md:mb-8 bg-rose-950/30 border-rose-900/50 text-rose-400">
-          Attention — Service Businesses Selling for More than $3k
-        </div>
-
         <!-- Headline -->
         <h1 class="animate-fade-up delay-100 font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[5.25rem] leading-[1.05] md:leading-[0.95] text-slate-50 tracking-tighter mb-6 md:mb-8">
           Our done-for-you inbound client system will bring in 20-30 more qualified calls for you per month, or we work for free until it does
@@ -211,25 +231,10 @@
           We build your complete funnel, write all your copy, create &amp; script your ads, and book qualified sales calls on your calendar. You just show up to close the deals we deliver.
         </p>
 
-        <!-- VSL Placeholder -->
-        <div class="animate-fade-up delay-300 relative w-full max-w-4xl rounded-xl md:rounded-[2rem] border-2 md:border-4 shadow-2xl overflow-hidden mb-8 md:mb-12 bg-black border-white/10 ring-1 ring-white/5">
-          <div style="padding:62.5% 0 0 0; position:relative;">
-            <iframe
-              src="https://player.vimeo.com/video/1158525333?badge=0&autopause=0&player_id=0&app_id=58479"
-              frameborder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              style="position:absolute;top:0;left:0;width:100%;height:100%;"
-              title="Motive Growth Agency VSL">
-            </iframe>
-          </div>
-          <script src="https://player.vimeo.com/api/player.js"></script>
-        </div>
-
         <!-- CTA Group -->
         <div class="animate-fade-up delay-400 flex flex-col sm:flex-row gap-3 md:gap-4 w-full items-center justify-center mb-4">
           <a href="#book-call"
-             class="cta-primary w-full sm:w-auto px-8 py-4 rounded-full text-sm font-montserrat font-semibold bg-white text-black hover:bg-rose-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group">
+             class="w-full sm:w-auto px-8 py-4 rounded-full text-sm font-montserrat font-semibold bg-white text-black hover:bg-rose-500 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group">
             Book Your Free Strategy Session
             <iconify-icon icon="solar:arrow-right-linear" width="18" class="transition-transform group-hover:translate-x-1"></iconify-icon>
           </a>
@@ -238,12 +243,6 @@
             See How It Works
           </a>
         </div>
-
-        <!-- Trust micro-copy -->
-        <p class="animate-fade-up delay-500 text-[10px] md:text-xs font-montserrat text-gray-500 flex items-center gap-2">
-          <iconify-icon icon="solar:shield-check-linear" width="14" class="text-rose-500"></iconify-icon>
-          No credit card required &nbsp;·&nbsp; 100% money-back guarantee &nbsp;·&nbsp; Results in 14 days or less
-        </p>
 
       </div>
     </section>
@@ -333,7 +332,7 @@
     <section class="max-w-6xl mx-auto pt-4 pb-16 md:py-20" id="why-us">
       <div class="text-center mb-10 md:mb-14 px-4">
         <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-4">
-          Are You Currently Struggling With…
+          Where High-Ticket Pipelines Break
         </h2>
         <p class="text-sm md:text-base font-light text-gray-400 max-w-xl mx-auto">
           Most high-ticket service businesses hit the same three walls. Here's what we hear every week.
@@ -383,7 +382,7 @@
     ═══════════════════════════════════════════════ -->
     <section class="py-16 md:py-24">
       <div class="text-center mb-10 md:mb-16 px-4">
-        <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">The Solution</span>
+        <span class="eyebrow mb-3">The Solution</span>
         <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-4">
           Why Choose Us
         </h2>
@@ -456,7 +455,6 @@
         <div class="inline-flex justify-center mb-6 md:mb-8 text-rose-500 opacity-40">
           <iconify-icon icon="solar:quote-up-square-linear" width="52" height="52"></iconify-icon>
         </div>
-        <div class="stars text-xl mb-6">★★★★★</div>
         <h3 class="text-2xl md:text-4xl lg:text-5xl leading-tight italic text-white font-serif mb-8 md:mb-10 px-2">
           "Your ads hit 4.5x ROAS in the last 6 months and your emails earned us an additional $700k"
         </h3>
@@ -476,8 +474,8 @@
     ═══════════════════════════════════════════════ -->
     <section class="py-16 md:py-24" id="process">
       <div class="text-center mb-12 md:mb-16 px-4">
-        <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">Finally</span>
-        <h2 class="text-3xl md:text-5xl font-medium text-white font-serif mb-4">Get Results in 3 Steps</h2>
+        <span class="eyebrow mb-3">The Process</span>
+        <h2 class="text-3xl md:text-5xl font-medium text-white font-serif mb-4">How We Work</h2>
         <p class="text-sm md:text-base font-light text-gray-400 max-w-xl mx-auto">
           From first call to a full pipeline — here's exactly how we do it.
         </p>
@@ -540,7 +538,7 @@
     ═══════════════════════════════════════════════ -->
     <section class="py-16 md:py-24" id="testimonials">
       <div class="text-center mb-10 md:mb-16 px-4">
-        <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">Client Results</span>
+        <span class="eyebrow mb-3">Client Results</span>
         <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif">
           What People Are Saying
         </h2>
@@ -550,7 +548,6 @@
 
         <!-- Testimonial 1 -->
         <div class="gradient-border bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col">
-          <div class="stars text-sm mb-4">★★★★★</div>
           <p class="leading-relaxed text-sm md:text-base italic text-gray-300 mb-6 flex-1">
             "About $20k–30k per week… so we were making about <strong class="text-white not-italic">$80k / month</strong> working with you."
           </p>
@@ -566,7 +563,6 @@
 
         <!-- Testimonial 2 -->
         <div class="gradient-border bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col">
-          <div class="stars text-sm mb-4">★★★★★</div>
           <p class="leading-relaxed text-sm md:text-base italic text-gray-300 mb-6 flex-1">
             "Our goal was 9 booked calls a day and you helped us hit that… close to <strong class="text-white not-italic">$150k / month</strong> from you."
           </p>
@@ -582,7 +578,6 @@
 
         <!-- Testimonial 3 -->
         <div class="gradient-border bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col">
-          <div class="stars text-sm mb-4">★★★★★</div>
           <p class="leading-relaxed text-sm md:text-base italic text-gray-300 mb-6 flex-1">
             "<strong class="text-white not-italic">$40–50k / month</strong> coming from what you wrote. The copy you produced was unlike anything we'd seen before."
           </p>
@@ -598,7 +593,6 @@
 
         <!-- Testimonial 4 -->
         <div class="gradient-border bg-[#0a0a0a] border border-white/5 rounded-2xl p-6 md:p-8 flex flex-col">
-          <div class="stars text-sm mb-4">★★★★★</div>
           <p class="leading-relaxed text-sm md:text-base italic text-gray-300 mb-6 flex-1">
             "We were making about $100k / month — about half of that came directly from you, so <strong class="text-white not-italic">$50k / month</strong> attributable to Mason."
           </p>
@@ -639,7 +633,7 @@
 
         <!-- Copy -->
         <div class="order-1 md:order-2">
-          <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-4">Meet Your Strategist</span>
+          <span class="eyebrow mb-4">About</span>
           <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-6">
             Hi, I'm Mason.
           </h2>
@@ -669,7 +663,7 @@
     ═══════════════════════════════════════════════ -->
     <section class="max-w-3xl mx-auto py-8 md:py-16 mb-16 md:mb-24 px-2 md:px-0" id="faq">
       <div class="text-center mb-10 md:mb-12">
-        <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">Got Questions?</span>
+        <span class="eyebrow mb-3">Questions</span>
         <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-3">
           FAQs — Everything You Need to Know
         </h2>
@@ -750,7 +744,7 @@
       </div>
 
       <div class="text-center mb-10 md:mb-12 max-w-2xl mx-auto">
-        <span class="text-[10px] md:text-xs uppercase block font-bold text-rose-500 tracking-widest font-montserrat mb-3">Zero Commitment</span>
+        <span class="eyebrow mb-3">Next Step</span>
         <h2 class="text-3xl md:text-5xl font-medium text-white tracking-tight font-serif mb-4">
           Book Your Free Strategy Session
         </h2>
@@ -818,6 +812,8 @@
             <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
           </div>
           <div class="flex flex-col gap-2">
+            <a href="/blog/" class="hover:text-white transition-colors">Blog</a>
+            <a href="https://claude.ai/code/artifact/801acd24-9456-44c4-8e4f-fa3d9de831eb" target="_blank" rel="noopener" class="hover:text-white transition-colors">Ad Budget Calculator</a>
             <a href="#book-call" class="hover:text-white transition-colors">Book a Call</a>
           </div>
         </div>
